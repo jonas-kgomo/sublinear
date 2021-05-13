@@ -1,0 +1,10 @@
+{
+  "name": "sublinear",
+  "version": "1.0.0",
+  "description": "sync linear tasks with notion",
+  "main": "index.js",
+  "repository": "https://github.com/jonas-kgomo/sublinear.git",
+  "author": "jonas-kgomo <jonaskgmoo@gmail.com>",
+  "license": "MIT",
+  "private": false
+}
