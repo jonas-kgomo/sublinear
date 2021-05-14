@@ -59,55 +59,6 @@ async function getIssuesFromDatabse() {
     return issues; 
 }; 
 
-//Get a paginated list of Tasks currently in a the database. 
-// async function getIssuesFromDatabse() {
-
-//     const tasks = {} 
-
-//     async function getPageOfTasks(cursor){
-//         let request_payload = "";
-//         //Create the request payload based on the presense of a start_cursor
-//         if(cursor == undefined){
-//             request_payload = {
-//                 path:'databases/' + database_id + '/query', 
-//                 method:'POST',
-//             }
-//         } else {
-//             request_payload= {
-//                 path:'databases/' + database_id + '/query', 
-//                 method:'POST',
-//                 body:{
-//                     "start_cursor": cursor
-//                 }
-//             }
-//         }
-//         //While there are more pages left in the query, get pages from the database. 
-//         const current_pages = await notion.request(request_payload)
-        
-//         for(const page of current_pages.results){
-//             if(page.properties.Status){ 
-//                 tasks[page.id] = {
-//                     "Status": page.properties.Status.select.name,
-//                     "Name": page.properties.Name.title[0].text.content
-//                 }
-//             } else {
-//                 tasks[page.id] = {
-//                     "Status": "No Status",
-//                     "Name": page.properties.Name.title[0].text.content
-//                 }
-//             }
-//         }
-//         if(current_pages.has_more){
-//             await getPageOfTasks(current_pages.next_cursor)
-//         } 
-        
-//     }
-   
-//     await getPageOfTasks();
-//     console.log(tasks); 
-//     return tasks; 
-// }; 
-
 
 
 (async () => {
