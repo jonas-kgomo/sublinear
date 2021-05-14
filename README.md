@@ -7,7 +7,7 @@
 
 
 
-<img align="left" width="44px" src="https://raw.githubusercontent.com/jonas-kgomo/sublinear/461c431c2e69165388db6c4636fe660a74929781/assets/logo.png">
+<img align="left" width="44px" src="https://raw.githubusercontent.com/jonas-kgomo/sublinear/main/assets/logo.png">
 <ul><ul>
     <b>Sublinear.</b><br/>
     This fetches data, and displays them on Notion. It lets you export your tasks on <a href="https://www.notion.so/">Notion</a> dynamically.
