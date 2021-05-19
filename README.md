@@ -1,16 +1,47 @@
 # sublinear
 
-- make sure your database is in `workspace`
+How to use 
+1. make sure your database is in `workspace`
+
+INSIDE 
+
+GraphQL - a query language for APIs and a runtime for fulfilling those queries with your existing data.
+NodeJS
+TypeScript
+- Express
+GraphQL server: 
+React JS
+Apollo 
+
+LINEAR ENDPOINT :  `https://api.linear.app/graphql`
+
+
+TODO 
+
+- create endpoint 
+- create-react-apollo-typescript
+
+SET UP: 
+
+Next, initialize a TypeScript project to it:
+`npm init -y
+npm install typescript ts-node @types/node --save-dev
+`
+1. TypeScript 
+2. 
+
 
 ![img](assets/mscene.png)  
 
-
+```graphql
+node: https://github.com/connor/linear-node-api
+``` 
 
 
 <img align="left" width="44px" src="https://raw.githubusercontent.com/jonas-kgomo/sublinear/main/assets/logo.png">
 <ul><ul>
     <b>Sublinear.</b><br/>
-    This fetches data, and displays them on Notion. It lets you export your tasks on <a href="https://www.notion.so/">Notion</a> dynamically.
+    This fetches data, and displays them on Notion. It lets you export your tasks on Linear to <a href="https://www.notion.so/">Notion</a> dynamically.
  
 </ul></ul>
 
