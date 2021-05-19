@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  font-family: -apple-system,'Inter UI', sans-serif;
+  background-color: #282c34;
+  color: white;
 }
 
 .App-logo {

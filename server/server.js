@@ -10,7 +10,6 @@ const notion = new Client({auth: process.env.NOTION_KEY});
  
 const database_id = process.env.NOTION_DATABASE_ID;
 
-console.log(linearClient.me);
 
 async function syncIssuesWithDatabase(){
     const issuesInDatabase = await getIssuesFromDatabse(); 
@@ -129,19 +128,19 @@ async function getIssuesFromDatabse() {
 
 
 
-// (async () => {
-//   const databaseId = database_id;
-//   const response = await notion.databases.retrieve({
-//     database_id: databaseId,
-//     sorts: [
-//       {
-//         timestamp: 'created_time',
-//         direction: 'descending',
-//       },
-//     ]
-//   });
-//   console.log(response);
-// })();
+(async () => {
+  const databaseId = database_id;
+  const response = await notion.databases.retrieve({
+    database_id: databaseId,
+    sorts: [
+      {
+        timestamp: 'created_time',
+        direction: 'descending',
+      },
+    ]
+  });
+  console.log(response);
+})();
 
 
 // console.log(getIssuesFromDatabse())
