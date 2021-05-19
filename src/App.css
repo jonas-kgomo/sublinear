@@ -9,7 +9,22 @@
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    /* animation: App-logo-spin infinite 20s linear; */
+    animation: gradient 8s infinite ease-in-out;
+  }
+}
+
+@keyframes gradient {
+  from {
+    /* background-color: red; */
+     filter: saturate(1);
+     filter: hue-rotate(360deg);
+  }
+
+  to {
+    /* background-color: blue; */
+     filter: saturate(0);
+     filter: hue-rotate(0deg);
   }
 }
 
