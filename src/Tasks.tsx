@@ -14,7 +14,7 @@ function Tasks() {
   useEffect(() => {
     async function getUser() {
       const me = await linear.viewer;
-      setUser("  :" + me?.name + " @" + me?.displayName); // @jonas me?.displayName
+      setUser("  | " + me?.name + " @" + me?.displayName); // @profile display
     }
     getUser();
   }, []);
@@ -29,8 +29,10 @@ function Tasks() {
         tasks?.nodes?.map(
           (e, i) =>
             //        console.log(`${me.displayName} has issue: ${issue.title}`)
-            //   setUser([issue])
-            setTasks(" " + tasks?.nodes?.[i].title)
+            setTasks(" |" + tasks?.nodes?.[i].title)
+          //  setTasks(tasks?.nodes?.map())
+          // console.log(e)
+          // console.log(" " + tasks?.nodes?.[i].title)
           // e.url
         );
       } else {
@@ -46,7 +48,16 @@ function Tasks() {
         <p className="h">User</p>
         <p>{user}</p>
       </div>
-      <p>Tasks {tasks} </p>
+      <p>Tasks: {tasks} </p>
+      <div>
+        {/* {tasks.map(() => {
+          return (
+            <li>
+              <ul>{tasks.length}</ul>
+            </li>
+          );
+        })} */}
+      </div>
     </div>
   );
 }

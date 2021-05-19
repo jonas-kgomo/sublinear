@@ -54,7 +54,7 @@ function Tasks() {
                         case 0: return [4 /*yield*/, linear.viewer];
                         case 1:
                             me = _a.sent();
-                            setUser("  :" + (me === null || me === void 0 ? void 0 : me.name) + " @" + (me === null || me === void 0 ? void 0 : me.displayName)); // @jonas me?.displayName
+                            setUser("  | " + (me === null || me === void 0 ? void 0 : me.name) + " @" + (me === null || me === void 0 ? void 0 : me.displayName)); // @profile display
                             return [2 /*return*/];
                     }
                 });
@@ -77,8 +77,10 @@ function Tasks() {
                             if ((_a = tasks === null || tasks === void 0 ? void 0 : tasks.nodes) === null || _a === void 0 ? void 0 : _a.length) {
                                 (_b = tasks === null || tasks === void 0 ? void 0 : tasks.nodes) === null || _b === void 0 ? void 0 : _b.map(function (e, i) { var _a; 
                                 //        console.log(`${me.displayName} has issue: ${issue.title}`)
-                                //   setUser([issue])
-                                return setTasks(" " + ((_a = tasks === null || tasks === void 0 ? void 0 : tasks.nodes) === null || _a === void 0 ? void 0 : _a[i].title)); }
+                                return setTasks(" |" + ((_a = tasks === null || tasks === void 0 ? void 0 : tasks.nodes) === null || _a === void 0 ? void 0 : _a[i].title)); }
+                                //  setTasks(tasks?.nodes?.map())
+                                // console.log(e)
+                                // console.log(" " + tasks?.nodes?.[i].title)
                                 // e.url
                                 );
                             }
@@ -97,8 +99,9 @@ function Tasks() {
             react_1["default"].createElement("p", { className: "h" }, "User"),
             react_1["default"].createElement("p", null, user)),
         react_1["default"].createElement("p", null,
-            "Tasks ",
+            "Tasks: ",
             tasks,
-            " ")));
+            " "),
+        react_1["default"].createElement("div", null)));
 }
 exports["default"] = Tasks;
