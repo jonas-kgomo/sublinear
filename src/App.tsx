@@ -6,8 +6,12 @@ import Tasks from "./Tasks";
 function App() {
   return (
     <div className="App">
-      <h1>Sublinear</h1>
+      <h1>
+        Sublinear <img src="/logo.png" className="Logo" />
+      </h1>
+
       <header className="App-header">
+        <button className="btn">Fetch</button>
         <Tasks />
         <p>Sync linear tasks with notion</p>
 

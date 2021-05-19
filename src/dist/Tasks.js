@@ -44,9 +44,9 @@ var sdk_1 = require("@linear/sdk");
 //const notion = new Client({ auth: process.env.NOTION_KEY });
 var linear = new sdk_1.LinearClient({ apiKey: process.env.REACT_APP_LINEAR_KEY });
 function Tasks() {
-    var _a = react_1.useState(""), fact = _a[0], setFact = _a[1];
+    var _a = react_1.useState(""), user = _a[0], setUser = _a[1];
     react_1.useEffect(function () {
-        function getFact() {
+        function getUser() {
             return __awaiter(this, void 0, void 0, function () {
                 var me;
                 return __generator(this, function (_a) {
@@ -54,18 +54,51 @@ function Tasks() {
                         case 0: return [4 /*yield*/, linear.viewer];
                         case 1:
                             me = _a.sent();
-                            //setFact(me);
-                            setFact("User: " + (me === null || me === void 0 ? void 0 : me.name));
-                            return [2 /*return*/, me];
+                            setUser("  :" + (me === null || me === void 0 ? void 0 : me.name) + " @" + (me === null || me === void 0 ? void 0 : me.displayName)); // @jonas me?.displayName
+                            return [2 /*return*/];
                     }
                 });
             });
         }
-        getFact();
+        getUser();
     }, []);
-    return (react_1["default"].createElement("div", null,
+    var _b = react_1.useState(""), tasks = _b[0], setTasks = _b[1];
+    react_1.useEffect(function () {
+        function getTasks() {
+            var _a, _b;
+            return __awaiter(this, void 0, void 0, function () {
+                var tasks;
+                return __generator(this, function (_c) {
+                    switch (_c.label) {
+                        case 0: return [4 /*yield*/, linear.issues()];
+                        case 1:
+                            tasks = _c.sent();
+                            //setTasks(" :" + tasks?.nodes?.[0].title);
+                            if ((_a = tasks === null || tasks === void 0 ? void 0 : tasks.nodes) === null || _a === void 0 ? void 0 : _a.length) {
+                                (_b = tasks === null || tasks === void 0 ? void 0 : tasks.nodes) === null || _b === void 0 ? void 0 : _b.map(function (e, i) { var _a; 
+                                //        console.log(`${me.displayName} has issue: ${issue.title}`)
+                                //   setUser([issue])
+                                return setTasks(" " + ((_a = tasks === null || tasks === void 0 ? void 0 : tasks.nodes) === null || _a === void 0 ? void 0 : _a[i].title)); }
+                                // e.url
+                                );
+                            }
+                            else {
+                                console.log(" has no issues");
+                            }
+                            return [2 /*return*/];
+                    }
+                });
+            });
+        }
+        getTasks();
+    }, []);
+    return (react_1["default"].createElement("div", { className: "card" },
+        react_1["default"].createElement("div", { className: "user" },
+            react_1["default"].createElement("p", { className: "h" }, "User"),
+            react_1["default"].createElement("p", null, user)),
         react_1["default"].createElement("p", null,
-            "Current-",
-            fact)));
+            "Tasks ",
+            tasks,
+            " ")));
 }
 exports["default"] = Tasks;

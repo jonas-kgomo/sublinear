@@ -1,9 +1,59 @@
 .App {
   text-align: center;
   font-family: -apple-system,'Inter UI', sans-serif;
-  background-color: #282c34;
+    background-color: rgb(28, 29, 31);
+  /* background-color: #282c34; */
   color: white;
 }
+
+.App p {
+  font-size: 18px;
+}
+
+.card {
+      width: calc(33.333% - 28px);
+      margin: 14px;
+      min-width: 200px;
+      padding: 52px;
+      background: linear-gradient(rgb(40, 41, 44) 0%, rgba(39, 40, 43, 0.82) 100%);
+      box-shadow: rgb(0 0 0 / 30%) 0px 13px 40px,
+      rgb(0 0 0 / 20%) 0px 4px 4px;
+      border-radius: 16px;
+}
+
+
+.user {
+  display: flex
+}
+.user p{ 
+  color: gray;
+  font-weight: 300;
+  padding-left: 2px;
+  
+}
+
+.user h {
+  color: rgb(69, 81, 181);
+  font-weight: 300;
+  padding-left: 2px;
+}
+
+.btn { 
+  
+    width: 50%;
+    max-width: 100px;
+    background: linear-gradient(101.06deg, rgb(69, 81, 181) 9.16%, rgb(86, 67, 204) 32.02%, rgb(84, 63, 215) 64.72%);
+    border:none;
+    border-radius:4px;
+    color: white;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 500;
+  
+}
+
 
 .App-logo {
   height: 40vmin;
@@ -32,7 +82,8 @@
 }
 
 .App-header {
-  background-color: #282c34;
+    background-color: rgb(28, 29, 31);
+  /* background-color: #282c34; */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -42,6 +93,10 @@
   color: white;
 }
 
+.Logo {
+  width: 26px;
+  padding-left: 5px;
+}
 .App-link {
   color: #61dafb;
 }

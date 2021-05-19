@@ -1,5 +1,6 @@
 html { 
-  background-color: #282c34;
+  background-color: rgb(28, 29, 31);
+  /* background-color: #282c34; */
   color: white;
 }
 
@@ -13,7 +14,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+
+
+code { 
+  font-family: 'Inter UI',
     monospace;
 }

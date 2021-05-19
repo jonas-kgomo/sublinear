@@ -9,20 +9,44 @@ import { LinearClient, LinearFetch, User } from "@linear/sdk";
 const linear = new LinearClient({ apiKey: process.env.REACT_APP_LINEAR_KEY });
 
 function Tasks() {
-  const [fact, setFact] = useState("");
+  const [user, setUser] = useState("");
+
   useEffect(() => {
-    async function getFact() {
+    async function getUser() {
       const me = await linear.viewer;
-      //setFact(me);
-      setFact("User: " + me?.name);
-      return me;
+      setUser("  :" + me?.name + " @" + me?.displayName); // @jonas me?.displayName
     }
-    getFact();
+    getUser();
+  }, []);
+
+  const [tasks, setTasks] = useState("");
+
+  useEffect(() => {
+    async function getTasks() {
+      const tasks = await linear.issues();
+      //setTasks(" :" + tasks?.nodes?.[0].title);
+      if (tasks?.nodes?.length) {
+        tasks?.nodes?.map(
+          (e, i) =>
+            //        console.log(`${me.displayName} has issue: ${issue.title}`)
+            //   setUser([issue])
+            setTasks(" " + tasks?.nodes?.[i].title)
+          // e.url
+        );
+      } else {
+        console.log(` has no issues`);
+      }
+    }
+    getTasks();
   }, []);
 
   return (
-    <div>
-      <p>Current-{fact}</p>
+    <div className="card">
+      <div className="user">
+        <p className="h">User</p>
+        <p>{user}</p>
+      </div>
+      <p>Tasks {tasks} </p>
     </div>
   );
 }
