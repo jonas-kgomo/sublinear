@@ -1,34 +1,7 @@
 # sublinear
 
-How to use 
-1. make sure your database is in `workspace`
-
-INSIDE 
-
-GraphQL - a query language for APIs and a runtime for fulfilling those queries with your existing data.
-NodeJS
-TypeScript
-- Express
-GraphQL server: 
-React JS
-Apollo 
-
-LINEAR ENDPOINT :  `https://api.linear.app/graphql`
-
-
-TODO 
-
-- create endpoint 
-- create-react-apollo-typescript
-
-SET UP: 
-
-Next, initialize a TypeScript project to it:
-`npm init -y
-npm install typescript ts-node @types/node --save-dev
-`
-1. TypeScript 
-2. 
+How to use :
+1. Make sure your Notion database is in `workspace`
 
 
 ![img](assets/mscene.png)  
@@ -62,3 +35,13 @@ node: https://github.com/connor/linear-node-api
  
 
 </ul></ul>
+
+SET UP: 
+
+Next, initialize a TypeScript project to it:
+`npm init -y
+npm install typescript ts-node @types/node --save-dev
+`
+
+LINEAR ENDPOINT :  `https://api.linear.app/graphql`
+

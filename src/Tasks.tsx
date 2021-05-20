@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
 import { LinearClient, LinearFetch, User } from "@linear/sdk";
-//import { Client } from "@notionhq/client";
 
-// const linearClient = new LinearClient({ apiKey: process.env.LINEAR_KEY });
-//const notion = new Client({ auth: process.env.NOTION_KEY });
 
 const linear = new LinearClient({ apiKey: process.env.REACT_APP_LINEAR_KEY });
 
@@ -19,26 +16,24 @@ function Tasks() {
     getUser();
   }, []);
 
-  const [tasks, setTasks] = useState("");
+  const [tasks, setTask] = useState<any[]>([]);
 
   useEffect(() => {
     async function getTasks() {
       const tasks = await linear.issues();
-      //setTasks(" :" + tasks?.nodes?.[0].title);
+      console.log(tasks?.nodes);
+
       if (tasks?.nodes?.length) {
-        tasks?.nodes?.map(
-          (e, i) =>
-            //        console.log(`${me.displayName} has issue: ${issue.title}`)
-            setTasks(" |" + tasks?.nodes?.[i].title)
-          //  setTasks(tasks?.nodes?.map())
-          // console.log(e)
-          // console.log(" " + tasks?.nodes?.[i].title)
-          // e.url
+        tasks?.nodes?.map((task) =>
+          setTask((tasks) => [...tasks, [task?.title]])
         );
       } else {
         console.log(` has no issues`);
       }
     }
+
+    // console.log("length " + tasks.length, tasks);
+
     getTasks();
   }, []);
 
@@ -48,15 +43,14 @@ function Tasks() {
         <p className="h">User</p>
         <p>{user}</p>
       </div>
-      <p>Tasks: {tasks} </p>
-      <div>
-        {/* {tasks.map(() => {
-          return (
-            <li>
-              <ul>{tasks.length}</ul>
-            </li>
-          );
-        })} */}
+      <p>Tasks: {tasks.length} </p>
+      <div className="h">
+        {tasks?.map((item) => (
+          <p key={item}>
+            {item} <i>{item.}</i>
+          </p>
+        ))}
+        {/* <pre>{JSON.stringify(tasks, null, 2)}</pre> */}
       </div>
     </div>
   );

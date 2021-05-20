@@ -14,11 +14,13 @@
       width: calc(33.333% - 28px);
       margin: 14px;
       min-width: 200px;
+      max-height: 600px;
       padding: 52px;
       background: linear-gradient(rgb(40, 41, 44) 0%, rgba(39, 40, 43, 0.82) 100%);
       box-shadow: rgb(0 0 0 / 30%) 0px 13px 40px,
       rgb(0 0 0 / 20%) 0px 4px 4px;
       border-radius: 16px;
+      overflow: scroll;
 }
 
 

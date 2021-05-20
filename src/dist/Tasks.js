@@ -35,6 +35,13 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+var __spreadArrays = (this && this.__spreadArrays) || function () {
+    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
+    for (var r = Array(s), k = 0, i = 0; i < il; i++)
+        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
+            r[k] = a[j];
+    return r;
+};
 exports.__esModule = true;
 var react_1 = require("react");
 require("./App.css");
@@ -62,7 +69,7 @@ function Tasks() {
         }
         getUser();
     }, []);
-    var _b = react_1.useState(""), tasks = _b[0], setTasks = _b[1];
+    var _b = react_1.useState([]), tasks = _b[0], setTask = _b[1];
     react_1.useEffect(function () {
         function getTasks() {
             var _a, _b;
@@ -73,16 +80,11 @@ function Tasks() {
                         case 0: return [4 /*yield*/, linear.issues()];
                         case 1:
                             tasks = _c.sent();
-                            //setTasks(" :" + tasks?.nodes?.[0].title);
+                            console.log(tasks === null || tasks === void 0 ? void 0 : tasks.nodes);
                             if ((_a = tasks === null || tasks === void 0 ? void 0 : tasks.nodes) === null || _a === void 0 ? void 0 : _a.length) {
-                                (_b = tasks === null || tasks === void 0 ? void 0 : tasks.nodes) === null || _b === void 0 ? void 0 : _b.map(function (e, i) { var _a; 
-                                //        console.log(`${me.displayName} has issue: ${issue.title}`)
-                                return setTasks(" |" + ((_a = tasks === null || tasks === void 0 ? void 0 : tasks.nodes) === null || _a === void 0 ? void 0 : _a[i].title)); }
-                                //  setTasks(tasks?.nodes?.map())
-                                // console.log(e)
-                                // console.log(" " + tasks?.nodes?.[i].title)
-                                // e.url
-                                );
+                                (_b = tasks === null || tasks === void 0 ? void 0 : tasks.nodes) === null || _b === void 0 ? void 0 : _b.map(function (task) {
+                                    return setTask(function (tasks) { return __spreadArrays(tasks, [[task === null || task === void 0 ? void 0 : task.title]]); });
+                                });
                             }
                             else {
                                 console.log(" has no issues");
@@ -92,6 +94,7 @@ function Tasks() {
                 });
             });
         }
+        // console.log("length " + tasks.length, tasks);
         getTasks();
     }, []);
     return (react_1["default"].createElement("div", { className: "card" },
@@ -100,8 +103,11 @@ function Tasks() {
             react_1["default"].createElement("p", null, user)),
         react_1["default"].createElement("p", null,
             "Tasks: ",
-            tasks,
+            tasks.length,
             " "),
-        react_1["default"].createElement("div", null)));
+        react_1["default"].createElement("div", { className: "h" }, tasks === null || tasks === void 0 ? void 0 : tasks.map(function (item) { return (react_1["default"].createElement("p", { key: item },
+            item,
+            " ",
+            react_1["default"].createElement("i", null, item.link))); }))));
 }
 exports["default"] = Tasks;
