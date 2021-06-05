@@ -2,6 +2,7 @@ import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import Tasks from "./Tasks";
+import Project from "./Project";
 
 function App() {
   return (
@@ -12,15 +13,19 @@ function App() {
 
       <header className="App-header">
         <button className="btn">Fetch</button>
-        <Tasks />
         <p>Sync linear tasks with notion</p>
+        <Tasks />
 
-        <img
-          alt="project"
-          className="App-logo"
-          src="https://raw.githubusercontent.com/jonas-kgomo/sublinear/main/assets/logo.png"
-        />
-        <div className="center"> Project Name</div>
+        <div className="container">
+          <img
+            alt="project"
+            className="App-logo"
+            src="https://raw.githubusercontent.com/jonas-kgomo/sublinear/main/assets/logo.png"
+          />
+          <div className="centered">
+            <Project />
+          </div>
+        </div>
       </header>
     </div>
   );

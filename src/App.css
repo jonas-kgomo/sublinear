@@ -7,7 +7,7 @@
 }
 
 .App p {
-  font-size: 18px;
+  font-size: 14px;
 }
 
 .card {
@@ -24,21 +24,61 @@
 }
 
 
+/* scrollbar */
+
+.card::-webkit-scrollbar {
+  width: 10px;
+  color:gray;        
+}
+
+.card::-webkit-scrollbar-track {
+  background: linear-gradient(rgb(40, 41, 44) 0%, rgba(39, 40, 43, 0.82) 100%);
+
+}
+
+.card::-webkit-scrollbar-thumb {
+  background-color: gray;
+  top:5px;
+  border-radius: 5px;       /* roundness of the scroll thumb */
+  border: 1px solid rgb(133, 133, 133);  /* creates padding around scroll thumb */
+}
+
+
 .user {
-  display: flex
+  display: flex;
 }
 .user p{ 
   color: gray;
+  font-weight: 300;
+  
+}
+
+.user h{
+  color: rgb(69, 81, 181);
   font-weight: 300;
   padding-left: 2px;
   
 }
 
-.user h {
-  color: rgb(69, 81, 181);
-  font-weight: 300;
-  padding-left: 2px;
+.titles {
+  margin: 2px;
+  color: rgb(252, 252, 252);
+  padding-left: 0px;
+  margin-left:0px;
+  text-align: start;
 }
+
+.taskNumber{
+  color: gray;
+   text-align: start;
+}
+
+/* .taskNumber span{
+    padding: left 4px; 
+     border: gray solid 1px;
+     margin: 2px;
+
+} */
 
 .btn { 
   
@@ -86,13 +126,15 @@
 .container {
   position: relative;
   text-align: center;
-  color: white;
+  color: rgb(231, 229, 229);
 }
 
 .centered {
   position: absolute;
   top: 50%;
   left: 50%;
+  font-weight: 500;
+  font-size:14px;
   transform: translate(-50%, -50%);
 }
 

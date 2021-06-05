@@ -47,41 +47,24 @@ var react_1 = require("react");
 require("./App.css");
 var sdk_1 = require("@linear/sdk");
 var linear = new sdk_1.LinearClient({ apiKey: process.env.REACT_APP_LINEAR_KEY });
-function Tasks() {
-    var _a = react_1.useState(""), user = _a[0], setUser = _a[1];
+function Project() {
+    var _a = react_1.useState([]), team = _a[0], setUser = _a[1];
+    //useState([] as any);
     react_1.useEffect(function () {
         function getUser() {
-            return __awaiter(this, void 0, void 0, function () {
-                var me;
-                return __generator(this, function (_a) {
-                    switch (_a.label) {
-                        case 0: return [4 /*yield*/, linear.viewer];
-                        case 1:
-                            me = _a.sent();
-                            setUser("  | " + (me === null || me === void 0 ? void 0 : me.name) + " @" + (me === null || me === void 0 ? void 0 : me.displayName)); // @profile display
-                            return [2 /*return*/];
-                    }
-                });
-            });
-        }
-        getUser();
-    }, []);
-    var _b = react_1.useState([]), tasks = _b[0], setTask = _b[1];
-    react_1.useEffect(function () {
-        function getTasks() {
             var _a, _b;
             return __awaiter(this, void 0, void 0, function () {
-                var tasks;
+                var teams;
                 return __generator(this, function (_c) {
                     switch (_c.label) {
-                        case 0: return [4 /*yield*/, linear.issues()];
+                        case 0: return [4 /*yield*/, linear.projects()];
                         case 1:
-                            tasks = _c.sent();
-                            console.log(tasks === null || tasks === void 0 ? void 0 : tasks.nodes);
-                            if ((_a = tasks === null || tasks === void 0 ? void 0 : tasks.nodes) === null || _a === void 0 ? void 0 : _a.length) {
-                                (_b = tasks === null || tasks === void 0 ? void 0 : tasks.nodes) === null || _b === void 0 ? void 0 : _b.map(function (task) {
-                                    return setTask(function (tasks) { return __spreadArrays(tasks, [[task === null || task === void 0 ? void 0 : task.title]]); });
-                                });
+                            teams = _c.sent();
+                            // const k = 0;
+                            //      const team = teams?.nodes;
+                            //  console.log(team);
+                            if ((_a = teams === null || teams === void 0 ? void 0 : teams.nodes) === null || _a === void 0 ? void 0 : _a.length) {
+                                (_b = teams === null || teams === void 0 ? void 0 : teams.nodes) === null || _b === void 0 ? void 0 : _b.map(function (task) { return setUser(function (team) { return __spreadArrays(team, [[task === null || task === void 0 ? void 0 : task.name]]); }); });
                             }
                             else {
                                 console.log(" has no issues");
@@ -91,22 +74,9 @@ function Tasks() {
                 });
             });
         }
-        // console.log("length " + tasks.length, tasks);
-        getTasks();
+        getUser();
     }, []);
-    return (react_1["default"].createElement("div", { className: "card" },
-        react_1["default"].createElement("div", { className: "user" },
-            react_1["default"].createElement("p", { className: "titles" },
-                "User ",
-                user)),
-        react_1["default"].createElement("p", { className: "taskNumber" },
-            "Tasks| ",
-            react_1["default"].createElement("span", null,
-                tasks.length,
-                " ")),
-        react_1["default"].createElement("div", { className: "titles" }, tasks === null || tasks === void 0 ? void 0 : tasks.map(function (item) { return (react_1["default"].createElement("p", { key: item },
-            item,
-            " ",
-            react_1["default"].createElement("i", null, item.url))); }))));
+    return (react_1["default"].createElement("div", null,
+        react_1["default"].createElement("div", null, team === null || team === void 0 ? void 0 : team.map(function (e, el) { return (react_1["default"].createElement("p", null, e)); }))));
 }
-exports["default"] = Tasks;
+exports["default"] = Project;

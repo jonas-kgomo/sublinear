@@ -39,11 +39,12 @@ function Tasks() {
   return (
     <div className="card">
       <div className="user">
-        <p className="h">User</p>
-        <p>{user}</p>
+        <p className="titles">User {user}</p>
       </div>
-      <p>Tasks: {tasks.length} </p>
-      <div className="h">
+      <p className="taskNumber">
+        Tasks| <span>{tasks.length} </span>
+      </p>
+      <div className="titles">
         {tasks?.map((item) => (
           <p key={item}>
             {item} <i>{item.url}</i>
