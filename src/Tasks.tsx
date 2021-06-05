@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 import { LinearClient, LinearFetch, User } from "@linear/sdk";
 
-
 const linear = new LinearClient({ apiKey: process.env.REACT_APP_LINEAR_KEY });
 
 function Tasks() {
@@ -47,7 +46,7 @@ function Tasks() {
       <div className="h">
         {tasks?.map((item) => (
           <p key={item}>
-            {item} <i>{item.}</i>
+            {item} <i>{item.url}</i>
           </p>
         ))}
         {/* <pre>{JSON.stringify(tasks, null, 2)}</pre> */}

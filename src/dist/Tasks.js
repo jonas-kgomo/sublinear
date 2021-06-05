@@ -46,9 +46,6 @@ exports.__esModule = true;
 var react_1 = require("react");
 require("./App.css");
 var sdk_1 = require("@linear/sdk");
-//import { Client } from "@notionhq/client";
-// const linearClient = new LinearClient({ apiKey: process.env.LINEAR_KEY });
-//const notion = new Client({ auth: process.env.NOTION_KEY });
 var linear = new sdk_1.LinearClient({ apiKey: process.env.REACT_APP_LINEAR_KEY });
 function Tasks() {
     var _a = react_1.useState(""), user = _a[0], setUser = _a[1];
@@ -108,6 +105,6 @@ function Tasks() {
         react_1["default"].createElement("div", { className: "h" }, tasks === null || tasks === void 0 ? void 0 : tasks.map(function (item) { return (react_1["default"].createElement("p", { key: item },
             item,
             " ",
-            react_1["default"].createElement("i", null, item.link))); }))));
+            react_1["default"].createElement("i", null, item.url))); }))));
 }
 exports["default"] = Tasks;
