@@ -12,15 +12,17 @@
 
 .card {
       width: calc(33.333% - 28px);
-      margin: 14px;
+      margin: 24px;
       min-width: 200px;
+      max-height: 300px;
       max-height: 600px;
       padding: 52px;
       background: linear-gradient(rgb(40, 41, 44) 0%, rgba(39, 40, 43, 0.82) 100%);
       box-shadow: rgb(0 0 0 / 30%) 0px 13px 40px,
       rgb(0 0 0 / 20%) 0px 4px 4px;
-      border-radius: 16px;
+      border-radius: 48px;
       overflow: scroll;
+      overflow-x: hidden;
 }
 
 
@@ -28,17 +30,28 @@
 
 .card::-webkit-scrollbar {
   width: 10px;
-  color:gray;        
+  top: 10px;
+  color:gray; 
+  scroll-padding: 10px;       
 }
 
 .card::-webkit-scrollbar-track {
-  background: linear-gradient(rgb(40, 41, 44) 0%, rgba(39, 40, 43, 0.82) 100%);
+  /* background:rgba(39, 40, 43, 0); */
+  background: transparent;
 
 }
 
+.card::-webkit-scrollbar-track-piece {
+  background: transparent;
+  margin-top: 20px;
+  margin-bottom: 10px; 
+}
+
 .card::-webkit-scrollbar-thumb {
+      margin-top: 10px;
   background-color: gray;
-  top:5px;
+  padding-top: 5px;
+  top:15px;
   border-radius: 5px;       /* roundness of the scroll thumb */
   border: 1px solid rgb(133, 133, 133);  /* creates padding around scroll thumb */
 }
@@ -49,13 +62,13 @@
 }
 .user p{ 
   color: gray;
-  font-weight: 300;
+  font-weight: 500;
   
 }
 
 .user h{
   color: rgb(69, 81, 181);
-  font-weight: 300;
+  font-weight: 500;
   padding-left: 2px;
   
 }
@@ -81,7 +94,6 @@
 } */
 
 .btn { 
-  
     width: 50%;
     max-width: 100px;
     background: linear-gradient(101.06deg, rgb(69, 81, 181) 9.16%, rgb(86, 67, 204) 32.02%, rgb(84, 63, 215) 64.72%);
@@ -129,13 +141,21 @@
   color: rgb(231, 229, 229);
 }
 
+.container img{
+  border: 5px;
+}
+
 .centered {
   position: absolute;
   top: 50%;
   left: 50%;
   font-weight: 500;
-  font-size:14px;
+  font-size:17px;
   transform: translate(-50%, -50%);
+}
+
+.centered p {
+font-size:14px;
 }
 
 .App-header {

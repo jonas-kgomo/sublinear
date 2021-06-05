@@ -6,21 +6,16 @@ const linear = new LinearClient({ apiKey: process.env.REACT_APP_LINEAR_KEY });
 
 function Project() {
   const [team, setUser] = useState<any[]>([]);
-  //useState([] as any);
 
   useEffect(() => {
     async function getUser() {
       const teams = await linear.projects();
-      // const k = 0;
-      //      const team = teams?.nodes;
-      //  console.log(team);
+
       if (teams?.nodes?.length) {
-        teams?.nodes?.map((task) => setUser((team) => [...team, [task?.name]]));
+        teams?.nodes?.map((task) => setUser((team) => [...team, [task]]));
       } else {
         console.log(` has no issues`);
       }
-
-      // setUser(team); // status team?.state
     }
     getUser();
   }, []);
@@ -31,10 +26,11 @@ function Project() {
 
       <div>
         {team?.map((e, el) => (
-          <p>
+          <div>
             {/* ij <b>{team?.[el].name}</b>  */}
-            {e}
-          </p>
+            {e?.[0].name}
+            <p>{e?.[0].description}</p>
+          </div>
         ))}
       </div>
 

@@ -49,7 +49,6 @@ var sdk_1 = require("@linear/sdk");
 var linear = new sdk_1.LinearClient({ apiKey: process.env.REACT_APP_LINEAR_KEY });
 function Project() {
     var _a = react_1.useState([]), team = _a[0], setUser = _a[1];
-    //useState([] as any);
     react_1.useEffect(function () {
         function getUser() {
             var _a, _b;
@@ -60,11 +59,8 @@ function Project() {
                         case 0: return [4 /*yield*/, linear.projects()];
                         case 1:
                             teams = _c.sent();
-                            // const k = 0;
-                            //      const team = teams?.nodes;
-                            //  console.log(team);
                             if ((_a = teams === null || teams === void 0 ? void 0 : teams.nodes) === null || _a === void 0 ? void 0 : _a.length) {
-                                (_b = teams === null || teams === void 0 ? void 0 : teams.nodes) === null || _b === void 0 ? void 0 : _b.map(function (task) { return setUser(function (team) { return __spreadArrays(team, [[task === null || task === void 0 ? void 0 : task.name]]); }); });
+                                (_b = teams === null || teams === void 0 ? void 0 : teams.nodes) === null || _b === void 0 ? void 0 : _b.map(function (task) { return setUser(function (team) { return __spreadArrays(team, [[task]]); }); });
                             }
                             else {
                                 console.log(" has no issues");
@@ -77,6 +73,8 @@ function Project() {
         getUser();
     }, []);
     return (react_1["default"].createElement("div", null,
-        react_1["default"].createElement("div", null, team === null || team === void 0 ? void 0 : team.map(function (e, el) { return (react_1["default"].createElement("p", null, e)); }))));
+        react_1["default"].createElement("div", null, team === null || team === void 0 ? void 0 : team.map(function (e, el) { return (react_1["default"].createElement("div", null, e === null || e === void 0 ? void 0 :
+            e[0].name,
+            react_1["default"].createElement("p", null, e === null || e === void 0 ? void 0 : e[0].description))); }))));
 }
 exports["default"] = Project;
