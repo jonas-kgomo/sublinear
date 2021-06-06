@@ -12,7 +12,7 @@ function App() {
       </h1>
 
       <header className="App-header">
-        <button className="btn">Fetch</button>
+        <button className="btn">Linear | Notion</button>
         <p className="Sync">Sync linear tasks with notion</p>
 
         <Tasks />

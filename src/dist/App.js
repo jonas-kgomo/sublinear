@@ -10,7 +10,7 @@ function App() {
             "Sublinear ",
             react_1["default"].createElement("img", { alt: "logo", src: "/logo.png", className: "Logo" })),
         react_1["default"].createElement("header", { className: "App-header" },
-            react_1["default"].createElement("button", { className: "btn" }, "Fetch"),
+            react_1["default"].createElement("button", { className: "btn" }, "Linear | Notion"),
             react_1["default"].createElement("p", { className: "Sync" }, "Sync linear tasks with notion"),
             react_1["default"].createElement(Tasks_1["default"], null),
             react_1["default"].createElement("div", { className: "container" },

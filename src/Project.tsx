@@ -28,7 +28,7 @@ function Project() {
         {team?.map((e, el) => (
           <div>
             {/* ij <b>{team?.[el].name}</b>  */}
-            {e?.[0].name}
+            <p className="titles">{e?.[0].name}</p>
             <p>{e?.[0].description}</p>
           </div>
         ))}

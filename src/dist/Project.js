@@ -73,8 +73,8 @@ function Project() {
         getUser();
     }, []);
     return (react_1["default"].createElement("div", null,
-        react_1["default"].createElement("div", null, team === null || team === void 0 ? void 0 : team.map(function (e, el) { return (react_1["default"].createElement("div", null, e === null || e === void 0 ? void 0 :
-            e[0].name,
+        react_1["default"].createElement("div", null, team === null || team === void 0 ? void 0 : team.map(function (e, el) { return (react_1["default"].createElement("div", null,
+            react_1["default"].createElement("p", { className: "titles" }, e === null || e === void 0 ? void 0 : e[0].name),
             react_1["default"].createElement("p", null, e === null || e === void 0 ? void 0 : e[0].description))); }))));
 }
 exports["default"] = Project;
