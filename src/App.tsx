@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "./logo.svg";
+// import logo from "./logo.png";
 import "./App.css";
 import Tasks from "./Tasks";
 import Project from "./Project";
