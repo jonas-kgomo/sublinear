@@ -2,6 +2,7 @@ import React from "react";
 // import logo from "./logo.png";
 import "./App.css";
 import Tasks from "./Tasks";
+import Sync from "./Sync";
 import Project from "./Project";
 
 function App() {
@@ -12,12 +13,13 @@ function App() {
       </h1>
 
       <header className="App-header">
-        <button className="btn">Linear | Notion</button>
-        <p className="Sync">Sync linear tasks with notion</p>
+        <div className="sync"> <p>Sync Linear issues with Notion </p>   </div>
+    
+        {/* <Tasks /> */}
+        <Sync/>
+        <Project />
 
-        <Tasks />
-
-        <div className="container">
+        {/* <div className="container">
           <img
             alt="project"
             className="App-logo"
@@ -26,7 +28,7 @@ function App() {
           <div className="centered">
             <Project />
           </div>
-        </div>
+        </div> */}
       </header>
     </div>
   );

@@ -11,7 +11,21 @@
 .App p {
   font-size: 14px;
 }
-
+.projects{ 
+  width: calc(33.333% - 28px);
+  margin: 24px;
+  min-width: 200px;
+  min-height: 400px;
+  max-height: 500px;
+  padding: 52px;
+  background: linear-gradient(rgb(140, 1, 204) 10%, rgba(99, 33, 185, 0.82) 60% );
+  box-shadow: rgb(0 0 0 / 30%) 0px 13px 40px,
+  rgb(0 0 0 / 20%) 0px 4px 4px;
+  border-radius:5px;
+  overflow: scroll;
+  overflow-x: hidden;
+ -webkit-appearance: none;
+}
 .card {
       width: calc(33.333% - 28px);
       margin: 24px;
@@ -33,7 +47,7 @@
 /* scrollbar */
 
 .card::-webkit-scrollbar {
-  width: 20px;
+  width: 10px;
   height: 10px;
   top: 10px;
   color:gray; 
@@ -73,6 +87,9 @@
   background-color: #f8f8f8;
 }
 
+ul p {
+  display: inline;
+}
 .description{
 color: rgb(155, 155, 155);
 text-justify: inter-cluster;
@@ -125,6 +142,11 @@ overflow: hidden;
   font-weight: 500;
 }
 
+.user span{
+  color:rgb(240, 172, 84);
+  font-weight: 400;
+}
+
 .user h{
   color: rgb(69, 81, 181);
   font-weight: 500;
@@ -133,7 +155,7 @@ overflow: hidden;
 }
 
 .titles {
-  margin: 2px;
+  margin: 1px;
   color: rgb(252, 252, 252);
   padding-left: 0px;
   margin-left:0px;
@@ -141,20 +163,24 @@ overflow: hidden;
 }
 
 .taskNumber{
-  text-align: left;
+  text-align: right;
+  position: inherit;
 }
 
 .taskNumber span{
-    padding: left 4px; 
-     border: gray solid 1px;
+    padding: left 1px; 
+     border: gray solid 0px;
      margin: 2px;
     color: gray;
+    position: absolute;
+
 
 }
 
 .btn { 
     width: 50%;
     max-width: 200px;
+    display: inline-flexbox;
     background: linear-gradient(101.06deg, rgb(69, 81, 181) 9.16%, rgb(86, 67, 204) 32.02%, rgb(84, 63, 215) 64.72%);
     border:none;
     border-radius:4px;
@@ -167,10 +193,16 @@ overflow: hidden;
   
 }
 
-
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+.sync{
+  display:flex;
+  justify-self: left; 
+  color: gray;
+  font-size: 16px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -237,6 +269,7 @@ font-size:14px;
   color: #61dafb;
 }
 
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -245,3 +278,4 @@ font-size:14px;
     transform: rotate(360deg);
   }
 }
+

@@ -7,23 +7,18 @@ import remarkGfm from 'remark-gfm'
 const linear = new LinearClient({ apiKey: process.env.REACT_APP_LINEAR_KEY });
 
 function Tasks() {
-  const [user, setUser] = useState("");
-
-  useEffect(() => {
-    async function getUser() {
-      const me = await linear.viewer;
-      setUser( me?.name + " @" + me?.displayName); // @profile display
-    }
-    getUser();
-  }, []);
+ 
 
   const [tasks, setTask] = useState<any[]>([]);
- 
+  const [tickets, setLinear] = useState<any[]>([]);
+  const [ linearIssues, getIssues] = useState({});
+
+
 
   useEffect(() => {
     async function getTasks() {
       const tasks = await linear.issues();
-      console.log(tasks?.nodes);
+    //   console.log(tasks?.nodes);
 
       if (tasks?.nodes?.length) {
         tasks?.nodes?.map((task) =>
@@ -38,20 +33,40 @@ function Tasks() {
 
     getTasks();
   }, []);
+
+   //Get a list of linear issues and add them to a local store
+   useEffect(() => {
+       async function getLinear(){
+    const tickets = await linear.issues();
+      console.log(tickets?.nodes[0], setLinear );
+
+      if (tickets?.nodes?.length) {
  
+        tickets?.nodes?.map((task) =>
+          setLinear((tasks) => [...tasks, [task]])
+        //   getIssues((linearIssues[tasks.id]) => [...tasks, {"id": tasks}])
+        );
+      } else {
+        console.log(` has no issues`);
+      }
+    }
+
+    // console.log("length " + tasks.length, tasks);
+    getLinear();
+}, []);
+
  
  
   
   return (
     <div className="card">
-       {/* <pre>{JSON.stringify(tasks, null, 2)}</pre> */}
+       {/* <pre>HERE {JSON.stringify(tickets[0].title, null, 2)}</pre> */}
    
-     
-      <h3 className="taskNumber">
-        Tasks {" "} <span >{tasks.length} </span>
-      </h3> 
-      <div className="titles"> <p><b>{user}</b></p> <button className="btn"> Linear | Notion </button></div>
-    
+       <button className="btn"> Sync </button> 
+      <h4 className="taskNumber">
+       Tasks {" "} <span >{tasks.length}  </span>
+      </h4> 
+      
       <div className="titles">
       {tasks?.map((item, index) => (
           <p key={index}>
